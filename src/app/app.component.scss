@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+$bg-success-color: #dff0d8;
+$bg-info-color: #d9edf7;
+$bg-warning-color: #fcf8e3;
+$bg-danger-color: #f2dede;
+
+$text-success-color: #3c763d;
+$text-info-color: #31708f;
+$text-primary-color: #337ab7;
+$text-warning-color: #8a6d3b;
+$text-danger-color: #a94442;
+
+$btn-font-size: 16px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+#username{
+	font-size: 24px;
+	input, input:hover, input:focus{
+		outline: none;
+		border: none;
+    font-size: inherit;
+    -webkit-box-shadow: none;
+	}
+}
+
+#to-do-list{
+	width: 40%;
+	input{
+		width: 75%;
+	}
+	button{
+		float: right;
+	}
+	.action{
+		width: 10%;
+		text-align: center;
+	}
+}
+
+.input{
+	@include border-radius(5px);
+	outline: none;
+	font-size: $btn-font-size;
+	padding: 5px 10px;
+	border: 1px solid #666;
+	background: #FFF;
+	&:focus{
+		-webkit-box-shadow: none;
+	}
+}
+button.btn{
+	@extend .input;
+	cursor: pointer;
+	&:hover{
+		color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+	}
+	&:active{
+		background: $text-primary-color;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body{
+	margin: 0 0 40px;
+	width: 100%;
+}
+header{
+
+}
+main{
+	width: 100%;
+	margin: 0 10px;
+}
+footer{
+	@include border-radius(5px);
+	background: $text-primary-color;
+	color: #FFF;
+	line-height: 40px;
+	vertical-align: middle;
+	padding-left: 20px;
+	position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 99%;
+  overflow:hidden;
+}
+svg{
+	cursor: pointer;
+}
+.strikethrough {
+  text-decoration: line-through;
+}

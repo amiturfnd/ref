@@ -1,3 +1,52 @@
-<h1>
-  {{title}}
-</h1>
+
+<div id="username">
+	Welcome <input type="text" [(ngModel)]="username" (focusout)="changeGuest()">
+</div>
+
+<table id="to-do-list">
+	<tr>
+		<td>
+			<input [(ngModel)]="newTask" type="text" name="addTask" placeholder="Add your task" (keyup.enter)="addTask()" class="input"> 
+			<button (click)="addTask()" type="button" class="btn">Add</button>
+		</td>
+		<td class="action" title="Complete all">
+			<span (click)="completeAllTask()">
+				<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+			    <path d="M0 0h24v24H0z" fill="none"/>
+			    <path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z"/>
+				</svg>
+			</span>
+		</td>
+		<td class="action" title="Delete all">
+			<span (click)="removeAllTask()">
+				<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+			    <path d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5 5H2v2h12z"/>
+			    <path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+			</span>
+		</td>
+	</tr>
+	<tr *ngFor="let item of toDoList; index as i;">
+		<td>
+			<span [ngClass]="{'strikethrough': item.completed}">
+				{{item.task}}
+			</span> 
+		</td>
+		<td class="action" title="Complete">
+			<span (click)="completeTask(i)">
+				<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+			    <path d="M0 0h24v24H0z" fill="none"/>
+			    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+				</svg>
+			</span>
+		</td>
+		<td class="action" title="Delete">
+			<span (click)="removeTask(i)">
+				<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+			    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+			    <path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+			</span>
+		</td>
+	</tr>
+</table>
